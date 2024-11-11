@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <nav>
+        <div class="main-nav container flex">
+            <a href="/" class="company-logo">
+                <img src="{% static 'images/logo.png' %}" alt="company logo">
+            </a>
+            <div class="nav-links">
+                <ul class="flex">
+                    <li class="hover-link nav-item"><a href="?category=general" style="color: #183b56;">General</a></li>
+                    <li class="hover-link nav-item"><a href="?category=business" style="color: #183b56;">Business</a>
+                    </li>
+                    <li class="hover-link nav-item"><a href="?category=sports" style="color: #183b56;">Sports</a></li>
+                    <li class="hover-link nav-item"><a href="?category=technology"
+                            style="color: #183b56;">Technology</a></li>
+                    <li class="hover-link nav-item"><a href="?category=entertainment"
+                            style="color: #183b56;">Entertainment</a></li>
+
+                    {% if request.user.is_authenticated %}
+                    <li class="hover-link nav-item"><a href="{% url 'logout' %}" class="auth-link"
+                        style="color: #183b56; margin-left: 10px;">Logout</a></li>
+                    {% else %}
+
+
+                    <li class="hover-link nav-item"><a href="{% url 'signup' %}" class="auth-link"
+                            style="color: #183b56;">Add
+                            Preferences</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main>
+        <div class="cards-container container flex" id="cards-container">
+            {% if news_data %}
+            {% for article in news_data %}
+            <div class="card">
+                <div class="card-header">
+                    <img src="{{ article.urlToImage }}" alt="News Image" width="100%">
+                </div>
+                <div class="card-content">
+                    <h3 class="news-title">{{ article.title }}</h3>
+                    <h6 class="news-source" id="news-source">{{ article.source.name }} · {{ article.publishedAt }}</h6>
+                    <p class="news-desc" id="news-desc">{{ article.description }}</p>
+                    <a href="{{ article.url }}" target="_blank">Read more</a>
+                </div>
+
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>No news available at this time.</p>
+            {% endif %}
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="auth-container container">
+        <h2>Login</h2>
+        <form id="login-form" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <input type="email" id="login-email" name="email" placeholder="Email" required>
+            <input type="password" id="login-password" name="password" placeholder="Password" required>
+            <button type="submit" class="auth-button">Login</button>
+        </form>
+        <p>Don’t have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+    </div>
+
+
+
+    <script src="{% static 'css/script.js' %}"></script>
+</body>
+
+</html>

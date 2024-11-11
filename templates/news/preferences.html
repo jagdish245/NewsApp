@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Preferences</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/preference.css' %}">
+</head>
+<body>
+
+<div class="auth-container container">
+    <h2>Select Your Preferences</h2>
+    <p>Select your favorite topics to receive tailored news content.</p>
+    <form id="preferences-form" method="post" action="{% url 'preferences' %}">
+        {% csrf_token %}
+        <div class="preferences-grid">
+            <label><input type="checkbox" name="preferences" value="sports"> Sports</label>
+            <label><input type="checkbox" name="preferences" value="business"> Business</label>
+            <label><input type="checkbox" name="preferences" value="politics"> Politics</label>
+            <label><input type="checkbox" name="preferences" value="science"> Science</label>
+            <label><input type="checkbox" name="preferences" value="technology"> Technology</label>
+            <label><input type="checkbox" name="preferences" value="health"> Health</label>
+            <label><input type="checkbox" name="preferences" value="entertainment"> Entertainment</label>
+            <label><input type="checkbox" name="preferences" value="education"> Education</label>
+            <label><input type="checkbox" name="preferences" value="environment"> Environment</label>
+            <label><input type="checkbox" name="preferences" value="world"> World</label>
+            <label><input type="checkbox" name="preferences" value="travel"> Travel</label>
+            <label><input type="checkbox" name="preferences" value="food"> Food</label>
+            <label><input type="checkbox" name="preferences" value="culture"> Culture</label>
+            <label><input type="checkbox" name="preferences" value="fashion"> Fashion</label>
+            <label><input type="checkbox" name="preferences" value="literature"> Literature</label>
+            <label><input type="checkbox" name="preferences" value="art"> Art</label>
+            <label><input type="checkbox" name="preferences" value="music"> Music</label>
+            <label><input type="checkbox" name="preferences" value="photography"> Photography</label>
+            <label><input type="checkbox" name="preferences" value="movies"> Movies</label>
+            <label><input type="checkbox" name="preferences" value="finance"> Finance</label>
+            <label><input type="checkbox" name="preferences" value="real-estate"> Real Estate</label>
+            <label><input type="checkbox" name="preferences" value="gaming"> Gaming</label>
+            <label><input type="checkbox" name="preferences" value="pets"> Pets</label>
+            <label><input type="checkbox" name="preferences" value="history"> History</label>
+            <label><input type="checkbox" name="preferences" value="weather"> Weather</label>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <button type="submit" class="auth-button">Save Preferences</button>
+            <button type="button" class="skip-button" style="margin-top: 0;" onclick="window.location.href='/'">Skip</button>
+        </div>
+    </form>
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

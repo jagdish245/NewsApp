@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: center;
+}
+
+h2 {
+    color: #183b56;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: #577592;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.preferences-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #e9f4ff;
+    padding: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+label:hover {
+    background-color: #d4ecff;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    accent-color: #2294ed;
+}
+
+input[type="checkbox"]:checked + span {
+    font-weight: bold;
+    color: #183b56;
+}
+
+.auth-button {
+    background-color: #2294ed;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: #1d69a3;
+}
+
+.skip-button {
+    margin-top: 1rem;
+    background-color: transparent;
+    color: #2294ed;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #2294ed;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.skip-button:hover {
+    background-color: #e0f0ff;
+    color: #1d69a3;
+}
+
+.preference-item.checked {
+    background-color: #2294ed;
+    color: white;
+    font-weight: bold;
+}
+
+.auth-button, .skip-button {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+    .preferences-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
